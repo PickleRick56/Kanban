@@ -3,9 +3,9 @@ import { useState } from 'react';
 
 
 
-export default function Ready({conditionReady, prop, onClick}) {
+export default function InProgress({name, prop, onClick}) {
     
-    
+    const [conditionReady, setConditionReady]=useState([]);
     const [status, setStatus] = useState(null);
 
     function changeStatus(e) {
@@ -13,18 +13,16 @@ export default function Ready({conditionReady, prop, onClick}) {
       
     }
 
-
-
-function hendler(){
+function addToDraw(){
+  setConditionReady([...conditionReady, status]);
   onClick(status);
-  setStatus(null);
 }
 
     return (
       <>
  <div>
 
- <h1>Ready</h1>
+ <h1>{name}</h1>
            <select  onClick={changeStatus} id="tasks">
                {prop.map(key => (<option value={key}  >{key}</option>))}
             </select>
@@ -36,7 +34,7 @@ function hendler(){
   <li >{artist}</li>
 ))}
 <p>выбранный элемент {status}</p>
-<button onClick={hendler}>добавить</button>
+<button onClick={addToDraw}>добавить</button>
  </div>
 
 
@@ -44,4 +42,5 @@ function hendler(){
       </>
     );
   }
+  
   
