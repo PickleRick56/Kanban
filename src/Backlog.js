@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
 
-let nextId = 0;
 
-export default function Backlog() {
+
+export default function Backlog({prop,onClick}) {
   const [topic, setTopic] = useState('');
-  const [artists, setArtists] = useState([]);
+
+
 
   return (
     <>
@@ -13,24 +14,19 @@ export default function Backlog() {
 
     <h1>Backlog:</h1>
     
-     
-    <ul>
-      {artists.map(artist => (
-        <li key={artist.id}>{artist.name}</li>
-      ))}
-    </ul>
+    <button onClick={
+() => {
+  onClick(topic);
+ 
+}} >Add</button>
 
-    <button onClick={() => {
-      setArtists([
-        ...artists,
-        { id: nextId++, name: topic }
-      ]);
-    }}>Add</button>
     <input
-      value={topic}
+      value={topic} id='cat'
       onChange={e => setTopic(e.target.value)}
     />
-
+{prop.map(artist => (
+  <li >{artist}</li>
+))}
     </div>
     </>
   );

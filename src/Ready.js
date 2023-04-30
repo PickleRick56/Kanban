@@ -1,28 +1,40 @@
 import { useState } from 'react';
 
-const arrExample=['cat','dog', 'job'];
 
 
-export default function Ready({name}) {
-    const [topic, setTopic] = useState('');
-    const [artists, setArtists] = useState([]);
-  
+
+export default function Ready({name, prop, onClick}) {
+    
+    const [conditionReady, setConditionReady]=useState([]);
+    const [status, setStatus] = useState(null);
+
+    function changeStatus(e) {
+      setStatus(e.target.value);
+      
+    }
+
+function addToDraw(){
+  setConditionReady([...conditionReady, status]);
+  onClick(status);
+}
+
     return (
       <>
  <div>
 
  <h1>{name}</h1>
-<select id="tasks">
-{arrExample.map(key => (
-        <li value={key}>{key}</li>
-      ))}
+           <select  onClick={changeStatus} id="tasks">
+               {prop.map(key => (<option value={key}  >{key}</option>))}
+            </select>
 
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="vw">VW</option>
-  <option value="audi" selected>Audi</option>
-</select>
 
+
+
+{conditionReady.map(artist => (
+  <li >{artist}</li>
+))}
+<p>выбранный элемент {status}</p>
+<button onClick={addToDraw}>добавить</button>
  </div>
 
 
