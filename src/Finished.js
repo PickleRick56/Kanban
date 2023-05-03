@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 
 
-export default function InProgress({conditionInProgress, prop, onClick}) {
+export default function Finished({conditionInProgress, prop, onClick}) {
     
     
     const [status, setStatus] = useState(null);
@@ -24,7 +24,7 @@ function hendler(){
       <>
  <div>
 
- <h1>InProgress</h1>
+ <h1>Finished</h1>
            <select  onClick={changeStatus} id="tasks">
                {prop.map(key => (<option value={key}  >{key}</option>))}
             </select>
