@@ -17,15 +17,16 @@ export default function Backlog({prop,onClick}) {
     <button onClick={
 () => {
   onClick(topic);
+  setTopic('');
  
 }} >Add</button>
 
     <input
-      value={topic} id='cat'
+      value={topic} 
       onChange={e => setTopic(e.target.value)}
     />
-{prop.map(artist => (
-  <li >{artist}</li>
+{prop.map(key => (
+  <li >{key}</li>
 ))}
     </div>
     </>
