@@ -26,12 +26,9 @@ export default function Backlog({prop,onClick}) {
       onChange={e => setTopic(e.target.value)}
     />
 {prop.map(key => (
-  <li >{key}</li>
+  <li >{key.name}</li>
 ))}
     </div>
     </>
   );
 }
-
-
-

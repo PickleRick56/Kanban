@@ -4,6 +4,11 @@ import InProgress from "./InProgress";
 import Finished from "./Finished";
 import { useState, useEffect } from 'react';
 
+
+
+let counter=0;
+
+
 export default function App (){
   const [condition, setCondition]= useState([]);
   const [conditionReady, setConditionReady]=useState([]);
@@ -11,35 +16,34 @@ export default function App (){
   const [conditionFinished, setConditionFinished]=useState([]);
 
 
-
-useEffect(() => {
+  useEffect(() => {
   
-  const items = JSON.parse(localStorage.getItem('conditionKey'));
-  if (items) {
-    setCondition(items);
-  }
-
-
-  const items2 = JSON.parse(localStorage.getItem('conditionReadyKey'));
-  if (items2) {
-    setConditionReady(items2);
-  }
-
-
-  const items3 = JSON.parse(localStorage.getItem('conditionInProgressKey'));
-  if (items3) {
-    setConditionInProgress(items3);
-  }
-
-
-  const items4 = JSON.parse(localStorage.getItem('conditionFinishedKey'));
-  if (items4) {
-    setConditionFinished(items4);
-  }
+    const items = JSON.parse(localStorage.getItem('conditionKey'));
+    if (items) {
+      setCondition(items);
+    }
   
-}, []);
-
-
+  
+    const items2 = JSON.parse(localStorage.getItem('conditionReadyKey'));
+    if (items2) {
+      setConditionReady(items2);
+    }
+  
+  
+    const items3 = JSON.parse(localStorage.getItem('conditionInProgressKey'));
+    if (items3) {
+      setConditionInProgress(items3);
+    }
+  
+  
+    const items4 = JSON.parse(localStorage.getItem('conditionFinishedKey'));
+    if (items4) {
+      setConditionFinished(items4);
+    }
+    
+  }, []);
+  
+  
 
 
 
@@ -51,14 +55,14 @@ useEffect(() => {
       return;
     }
     
-    localStorage.setItem('conditionKey', JSON.stringify([...condition, el]));
-    setCondition([...condition, el]);
+    localStorage.setItem('conditionKey', JSON.stringify([...condition, {id:counter++,name:el,discriprion:''}]));
+    setCondition([...condition, {id:counter++,name:el,discriprion:''}]);
   }
 
 
   const delElement = (el) => {
      
-     const result = condition.filter(key =>  el!==key);
+     const result = condition.filter(key =>  el!==key.name);
      localStorage.setItem('conditionKey', JSON.stringify(result));
 
     setCondition(result);
@@ -67,7 +71,7 @@ useEffect(() => {
 
   const delElementR = (el) => {
      
-    const result = conditionReady.filter(key =>  el!==key);
+    const result = conditionReady.filter(key =>  el!==key.name);
     localStorage.setItem('conditionReadyKey', JSON.stringify(result));
 
     
@@ -76,7 +80,7 @@ useEffect(() => {
 
  const delElementF = (el) => {
      
-  const result = conditionInProgress.filter(key =>  el!==key);
+  const result = conditionInProgress.filter(key =>  el!==key.name);
   localStorage.setItem('conditionInProgressKey', JSON.stringify(result));
   setConditionInProgress(result);
 }
@@ -88,8 +92,8 @@ useEffect(() => {
     if( status===null || status===''){
       return;
     }
-    localStorage.setItem('conditionReadyKey', JSON.stringify([...conditionReady, status]));
-    setConditionReady([...conditionReady, status]);
+    localStorage.setItem('conditionReadyKey', JSON.stringify([...conditionReady,  {id:counter++,name:status,discriprion:''}]));
+    setConditionReady([...conditionReady, {id:counter++,name:status,discriprion:''}]);
     delElement(status);
    
   }
@@ -98,8 +102,8 @@ useEffect(() => {
     if( status===null || status===''){
       return;
     }
-    localStorage.setItem('conditionInProgressKey', JSON.stringify([...conditionInProgress, status]));
-    setConditionInProgress([...conditionInProgress, status]);
+    localStorage.setItem('conditionInProgressKey', JSON.stringify([...conditionInProgress, {id:counter++,name:status,discriprion:''}]));
+    setConditionInProgress([...conditionInProgress, {id:counter++,name:status,discriprion:''}]);
     delElementR(status);
    
   }
@@ -108,8 +112,8 @@ useEffect(() => {
     if(status===null || status===''){
       return;
     }
-    localStorage.setItem('conditionFinishedKey', JSON.stringify([...conditionFinished, status]));
-    setConditionFinished([...conditionFinished, status]);
+    localStorage.setItem('conditionFinishedKey', JSON.stringify([...conditionFinished, {id:counter++,name:status,discriprion:''}]));
+    setConditionFinished([...conditionFinished, {id:counter++,name:status,discriprion:''}]);
     delElementF(status);
    
   }
@@ -119,12 +123,12 @@ useEffect(() => {
 
 
 
-<Backlog prop={condition}  onClick={addElement}/>
-    <Ready conditionReady={conditionReady} prop={condition} onClick={addToDraw}/>
-    <InProgress conditionInProgress={conditionInProgress} prop={conditionReady} onClick={addToDrawR}/>
+     <Backlog prop={condition}  onClick={addElement}/>
+     <Ready conditionReady={conditionReady} prop={condition} onClick={addToDraw}/>
+     <InProgress conditionInProgress={conditionInProgress} prop={conditionReady} onClick={addToDrawR}/>
     <Finished conditionInProgress={conditionFinished} prop={conditionInProgress} onClick={addToDrawF}/>
 <h1>Компонент App</h1>
- <p>тут размещенно состояние {condition}</p>
+
 </>
 
    )

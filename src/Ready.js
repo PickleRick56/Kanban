@@ -26,14 +26,14 @@ function hendler(){
 
  <h1>Ready</h1>
            <select  onClick={changeStatus} id="tasks">
-               {prop.map(key => (<option value={key}  >{key}</option>))}
+               {prop.map(key => (<option value={key.name}  >{key.name}</option>))}
             </select>
 
 
 
 
 {conditionReady.map(artist => (
-  <li >{artist}</li>
+  <li >{artist.name}</li>
 ))}
 <p>выбранный элемент {status}</p>
 <button onClick={hendler}>добавить</button>
