@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -33,7 +33,7 @@ function hendler(){
 
 
 {conditionInProgress.map(artist => (
-  <li >{artist.name}</li>
+  <li ><Link to={`/${artist.id}`}>{artist.name}</Link></li>
 ))}
 <p>выбранный элемент {status}</p>
 <button onClick={hendler}>добавить</button>
