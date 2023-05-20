@@ -33,7 +33,7 @@ function hendler(){
             
 
   <ul>
-  {conditionReady.map(artist => (<li ><Link to={`/${artist.id}`}>{artist.name}</Link></li>))}
+  {conditionReady.map(artist => (<li id={artist.id} ><Link to={`/${artist.id}`}>{artist.name}</Link></li>))}
   </ul>
 
 

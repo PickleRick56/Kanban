@@ -4,7 +4,7 @@ import InProgress from "./InProgress";
 import Finished from "./Finished";
 import { useState, useEffect } from 'react';
 
-import { BrowserRouter } from 'react-router-dom';
+
 
 
 let counter=0;
@@ -16,6 +16,8 @@ export default function App (){
   const [conditionReady, setConditionReady]=useState([]);
   const [conditionInProgress, setConditionInProgress]=useState([]);
   const [conditionFinished, setConditionFinished]=useState([]);
+  console.log(condition);
+  console.log(conditionReady);
 
 
   useEffect(() => {
@@ -94,8 +96,12 @@ export default function App (){
     if( status===null || status===''){
       return;
     }
-    localStorage.setItem('conditionReadyKey', JSON.stringify([...conditionReady,  {id:counter++,name:status,discriprion:''}]));
-    setConditionReady([...conditionReady, {id:counter++,name:status,discriprion:''}]);
+
+   
+     const {id} = condition.find((v)  => v.name ===  status)
+    
+    localStorage.setItem('conditionReadyKey', JSON.stringify([...conditionReady,  {id:id,name:status,discriprion:''}]));
+    setConditionReady([...conditionReady, {id:id,name:status,discriprion:''}]);
     delElement(status);
    
   }
@@ -104,8 +110,10 @@ export default function App (){
     if( status===null || status===''){
       return;
     }
-    localStorage.setItem('conditionInProgressKey', JSON.stringify([...conditionInProgress, {id:counter++,name:status,discriprion:''}]));
-    setConditionInProgress([...conditionInProgress, {id:counter++,name:status,discriprion:''}]);
+   
+     const {id} = conditionReady.find((v)  => v.name ===  status)
+    localStorage.setItem('conditionInProgressKey', JSON.stringify([...conditionInProgress, {id:id,name:status,discriprion:''}]));
+    setConditionInProgress([...conditionInProgress, {id:id,name:status,discriprion:''}]);
     delElementR(status);
    
   }
@@ -114,8 +122,9 @@ export default function App (){
     if(status===null || status===''){
       return;
     }
-    localStorage.setItem('conditionFinishedKey', JSON.stringify([...conditionFinished, {id:counter++,name:status,discriprion:''}]));
-    setConditionFinished([...conditionFinished, {id:counter++,name:status,discriprion:''}]);
+    const {id} = conditionInProgress.find((v)  => v.name ===  status)
+    localStorage.setItem('conditionFinishedKey', JSON.stringify([...conditionFinished, {id:id,name:status,discriprion:''}]));
+    setConditionFinished([...conditionFinished, {id:id,name:status,discriprion:''}]);
     delElementF(status);
    
   }
