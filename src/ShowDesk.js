@@ -7,24 +7,26 @@ import { useState, useEffect } from 'react';
 
 
 
+
 let counter=0;
 
 
-export default function App (){
- 
+export default function ShowDesk ({prop,setProp}){
+  
+
   const [condition, setCondition]= useState([]);
   const [conditionReady, setConditionReady]=useState([]);
   const [conditionInProgress, setConditionInProgress]=useState([]);
   const [conditionFinished, setConditionFinished]=useState([]);
-  console.log(condition);
-  console.log(conditionReady);
-
+ 
 
   useEffect(() => {
   
     const items = JSON.parse(localStorage.getItem('conditionKey'));
     if (items) {
+      
       setCondition(items);
+    
     }
   
   
@@ -60,6 +62,7 @@ export default function App (){
     }
     counter++;
     localStorage.setItem('conditionKey', JSON.stringify([...condition, {id:counter,name:el,discriprion:''}]));
+    setProp([...prop, {id:counter,name:el,discriprion:''}]);
     setCondition([...condition, {id:counter,name:el,discriprion:''}]);
   }
 
@@ -96,10 +99,11 @@ export default function App (){
     if( status===null || status===''){
       return;
     }
-
-   
-     const {id} = condition.find((v)  => v.name ===  status)
     
+     const {id} = condition.find((v)  => v.name ===  status)
+
+    
+
     localStorage.setItem('conditionReadyKey', JSON.stringify([...conditionReady,  {id:id,name:status,discriprion:''}]));
     setConditionReady([...conditionReady, {id:id,name:status,discriprion:''}]);
     delElement(status);
@@ -141,7 +145,7 @@ export default function App (){
 
 
 
-<h1>Компонент App</h1>
+<h1>Компонент App </h1>
 
 </>
 
