@@ -1,6 +1,6 @@
 
 import ShowDesk from './ShowDesk';
-import { useState, useEffect, Component } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes , Route} from 'react-router-dom';
 
 
@@ -10,11 +10,18 @@ import { Routes , Route} from 'react-router-dom';
 export default function App (){
   const [сomponents, setComponents]=useState([]); 
  
-  function setProperty(key){
-    setComponents(key);
-  }
-
-console.log(сomponents);
+  useEffect(() => {
+  
+    const items = JSON.parse(localStorage.getItem('сomponents'));
+    if (items) {
+      
+      setComponents(items);
+    
+    }
+  
+  
+    
+  }, []);
 
 return(
 <>

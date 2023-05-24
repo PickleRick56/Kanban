@@ -63,6 +63,7 @@ export default function ShowDesk ({prop,setProp}){
     counter++;
     localStorage.setItem('conditionKey', JSON.stringify([...condition, {id:counter,name:el,discriprion:''}]));
     setProp([...prop, {id:counter,name:el,discriprion:''}]);
+    localStorage.setItem('сomponents', JSON.stringify([...prop, {id:counter,name:el,discriprion:''}]));
     setCondition([...condition, {id:counter,name:el,discriprion:''}]);
   }
 
