@@ -46,6 +46,11 @@ export default function ShowDesk ({prop,setProp}){
     if (items4) {
       setConditionFinished(items4);
     }
+
+    const items5 = JSON.parse(localStorage.getItem('counter'));
+    if (items5) {
+      counter=items5;
+    }
     
   }, []);
   
@@ -65,6 +70,7 @@ export default function ShowDesk ({prop,setProp}){
     setProp([...prop, {id:counter,name:el,discriprion:''}]);
     localStorage.setItem('сomponents', JSON.stringify([...prop, {id:counter,name:el,discriprion:''}]));
     setCondition([...condition, {id:counter,name:el,discriprion:''}]);
+    localStorage.setItem('counter', JSON.stringify(counter));
   }
 
 
