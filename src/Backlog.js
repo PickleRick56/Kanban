@@ -7,7 +7,7 @@ import { Routes , Route, Link } from 'react-router-dom';
 
 export default function Backlog({prop,onClick}) {
   const [topic, setTopic] = useState('');
-
+  const [display, setDisplay] = useState(false);
 
 
   return (
@@ -16,19 +16,16 @@ export default function Backlog({prop,onClick}) {
 
     <h1>Backlog:</h1>
     
-    <button onClick={
-() => {
-  onClick(topic);
-  setTopic('');
+    {display ?
+    
+     <><button onClick={() => { onClick(topic);  setTopic('');  setDisplay(false); }} >Send</button> 
+       <input value={topic} onChange={e => setTopic(e.target.value)}/>   </> 
 
-}} >Add</button>
+    :  <button onClick={() => {setDisplay(true); }} >Add me</button>}
 
-    <input
-      value={topic} 
-      onChange={e => setTopic(e.target.value)}
-    />
+    
 
-
+   
 
 
 
