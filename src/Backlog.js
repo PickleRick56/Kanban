@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Routes , Route, Link } from 'react-router-dom';
-
-
+import Header from './Header';
+import Footer from "./Footer";
 
 
 
@@ -12,16 +12,17 @@ export default function Backlog({prop,onClick}) {
 
   return (
     <>
+    <Header/>
     <div className="backlog">
 
     <h1>Backlog:</h1>
     
     {display ?
-    
-     <><button onClick={() => { onClick(topic);  setTopic('');  setDisplay(false); }} >Send</button> 
+
+     <><button onClick={() => { onClick(topic);  setTopic('');  setDisplay(false); }} >Submit</button> 
        <input value={topic} onChange={e => setTopic(e.target.value)}/>   </> 
 
-    :  <button onClick={() => {setDisplay(true); }} >Add me</button>}
+    :  <button onClick={() => {setDisplay(true); }} >Add card</button>}
 
     
 
@@ -65,6 +66,7 @@ export default function Backlog({prop,onClick}) {
 
 
     </div>
+    <Footer/>
     </>
   );
 }

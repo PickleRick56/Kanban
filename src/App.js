@@ -1,9 +1,9 @@
 
 import ShowDesk from './ShowDesk';
 import { useState, useEffect } from 'react';
-import { Routes , Route} from 'react-router-dom';
-
-
+import { Routes , Route,Link} from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 
 
 
@@ -25,7 +25,7 @@ export default function App (){
 
 return(
 <>
-
+<Header/>
   
   <Routes>
 
@@ -33,12 +33,14 @@ return(
 
 
 {сomponents.map(key => (
-  <Route   path={`${key.id}`} element={<h1>{key.name}</h1>}/>
+  <Route   path={`${key.id}`} element={<><div>{key.name}</div><br/><br/> <div><Link to={`/`}>X</Link></div></>}/>
 ))}
 
 
 
   </Routes>
+
+  <Footer/>
 
 </>
 )

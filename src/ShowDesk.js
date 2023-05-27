@@ -3,6 +3,8 @@ import Ready from "./Ready";
 import InProgress from "./InProgress";
 import Finished from "./Finished";
 import { useState, useEffect } from 'react';
+import Header from "./Header";
+import Footer from "./Footer";
 
 
 
@@ -142,7 +144,7 @@ export default function ShowDesk ({prop,setProp}){
  
   return(
 <>
-
+<Header/>
 
      <Backlog prop={condition}  onClick={addElement} />
      <Ready conditionReady={conditionReady} prop={condition} onClick={addToDraw}/>
@@ -153,7 +155,7 @@ export default function ShowDesk ({prop,setProp}){
 
 
 <h1>Компонент App </h1>
-
+<Footer/>
 </>
 
    )
