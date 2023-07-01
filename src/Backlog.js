@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Routes , Route, Link } from 'react-router-dom';
-import Header from './Header';
-import Footer from "./Footer";
+
 
 
 
@@ -12,7 +11,7 @@ export default function Backlog({prop,onClick}) {
 
   return (
     <>
-    <Header/>
+    
     <div className="backlog">
 
     <h1>Backlog:</h1>
@@ -66,7 +65,7 @@ export default function Backlog({prop,onClick}) {
 
 
     </div>
-    <Footer/>
+  
     </>
   );
 }

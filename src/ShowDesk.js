@@ -3,8 +3,7 @@ import Ready from "./Ready";
 import InProgress from "./InProgress";
 import Finished from "./Finished";
 import { useState, useEffect } from 'react';
-import Header from "./Header";
-import Footer from "./Footer";
+
 
 
 
@@ -13,7 +12,7 @@ import Footer from "./Footer";
 let counter=0;
 
 
-export default function ShowDesk ({prop,setProp}){
+export default function ShowDesk ({prop,getAllProp}){
   
 
   const [condition, setCondition]= useState([]);
@@ -55,6 +54,12 @@ export default function ShowDesk ({prop,setProp}){
     }
     
   }, []);
+
+
+
+  useEffect(() => {
+   getAllProp([condition,conditionReady,conditionInProgress,conditionFinished])
+  }, [condition,conditionReady,conditionInProgress,conditionFinished]);
   
   
 
@@ -69,7 +74,7 @@ export default function ShowDesk ({prop,setProp}){
     }
     counter++;
     localStorage.setItem('conditionKey', JSON.stringify([...condition, {id:counter,name:el,discriprion:''}]));
-    setProp([...prop, {id:counter,name:el,discriprion:''}]);
+
     localStorage.setItem('сomponents', JSON.stringify([...prop, {id:counter,name:el,discriprion:''}]));
     setCondition([...condition, {id:counter,name:el,discriprion:''}]);
     localStorage.setItem('counter', JSON.stringify(counter));
@@ -144,7 +149,7 @@ export default function ShowDesk ({prop,setProp}){
  
   return(
 <>
-<Header/>
+
 
      <Backlog prop={condition}  onClick={addElement} />
      <Ready conditionReady={conditionReady} prop={condition} onClick={addToDraw}/>
@@ -155,7 +160,7 @@ export default function ShowDesk ({prop,setProp}){
 
 
 <h1>Компонент App </h1>
-<Footer/>
+
 </>
 
    )

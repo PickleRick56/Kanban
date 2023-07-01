@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from './Header';
-import Footer from "./Footer";
+
 
 export default function Ready({conditionReady, prop, onClick}) {
     
@@ -22,7 +21,7 @@ function hendler(){
 
     return (
       <>
-      <Header/>
+    
  <div>
 
  <h1>Ready</h1>
@@ -42,7 +41,7 @@ function hendler(){
 <button onClick={hendler}>добавить</button>
  </div>
 
- <Footer/>
+ 
 
       </>
     );
