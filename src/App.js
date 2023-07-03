@@ -10,7 +10,9 @@ import ContentPage from './ContentPage';
 export default function App (){
   const [сomponents, setComponents]=useState([]); 
   const [allProp, setAllProp]=useState([]); 
-  
+  const [discriprionId, setDiscriprionId]=useState([]); 
+
+
   useEffect(() => {
   
     const items = JSON.parse(localStorage.getItem('сomponents'));
@@ -20,6 +22,17 @@ export default function App (){
     }
     
   }, []);
+
+
+  useEffect(() => {
+  
+    const items = JSON.parse(localStorage.getItem('descriptionId'));
+    if (items) {
+      
+      localStorage.setItem('descriptionId', JSON.stringify(discriprionId));
+    }
+    
+  }, [discriprionId]);
 
 function cat (items){
 
@@ -62,7 +75,7 @@ return(
 
 
 {сomponents.map(key => (
-  <Route   path={`${key.id}`} element={<ContentPage prop={key} comp={сomponents} />}/>
+  <Route   path={`${key.id}`} element={<ContentPage prop={key} discriprionId={discriprionId} setDiscriprionId={setDiscriprionId} />}/>
 ))}
 
 

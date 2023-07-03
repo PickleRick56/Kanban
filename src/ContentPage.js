@@ -3,20 +3,20 @@ import { useState, useEffect } from 'react';
 
 
 
-export default function ContentPage (prop,comp, setComponents){
+export default function ContentPage ({prop, discriprionId,setDiscriprionId}){
     const [topic, setTopic] = useState('');
     const [display, setDisplay] = useState(false);
     
-    let z=[...prop.comp];
+    let z=[...discriprionId];
    let taskProp=[];
-  
+  console.log(discriprionId)
 
 
 function addDiscriprion(){
 
 
     
-const items = JSON.parse(localStorage.getItem('descriptionId'));
+const items = discriprionId;
     if (items) {
          {/* когда в items чтото есть */}
        
@@ -25,24 +25,24 @@ const items = JSON.parse(localStorage.getItem('descriptionId'));
          
 
             for (let i=0; i<items.length; i++){
-                if(items[i].id===prop.prop.id){
+                if(items[i].id===prop.id){
                     {/* ecли в items  нашелся данный элемет */}
                    console.log(items[i]);
                      items[i].discriprion=topic;
-                     localStorage.setItem('descriptionId', JSON.stringify([...items]));
+                     setDiscriprionId(([...items]));
                      return;
                }
             }
 
           
 
-     taskProp={id:prop.prop.id, name: prop.prop.name, discriprion: topic};
-     localStorage.setItem('descriptionId', JSON.stringify([...items,taskProp]));
+     taskProp={id:prop.id, name: prop.name, discriprion: topic};
+     setDiscriprionId([...items,taskProp]);
     }
     
   else{
      {/* когда items пустй */}
-    taskProp={id:prop.prop.id, name: prop.prop.name, discriprion: topic};
+    taskProp={id:prop.id, name: prop.name, discriprion: topic};
     localStorage.setItem('descriptionId', JSON.stringify([taskProp]));
 
   }
@@ -52,14 +52,14 @@ const items = JSON.parse(localStorage.getItem('descriptionId'));
     return(
         <>
         
-        <div>{prop.prop.name}</div><br/><br/> <div><Link to={`/`}>X</Link></div>
+        <div>{prop.name}</div><br/><br/> <div><Link to={`/`}>X</Link></div>
 
 
 
 
         {display ?
 
-<><button onClick={() => {   addDiscriprion();  setDisplay(false); }} >Submit</button> 
+<><button onClick={() => {     addDiscriprion();        setDisplay(false); }} >Submit</button> 
   <input value={topic} onChange={e => setTopic(e.target.value)}/>   </> 
 
 :  <button onClick={() => {setDisplay(true);  setTopic('');}} >Add card</button>}
