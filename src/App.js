@@ -13,26 +13,39 @@ export default function App (){
   const [discriprionId, setDiscriprionId]=useState([]); 
 
 
+
+
+
+
+
   useEffect(() => {
-  
+  /* получения значений из localStorage */
     const items = JSON.parse(localStorage.getItem('сomponents'));
     if (items) {
       
       setComponents(items);
     }
+
+    const items2 = JSON.parse(localStorage.getItem('descriptionId'));
+    if (items2) {
+      
+      setDiscriprionId(items2);
+    }
     
   }, []);
 
 
-  useEffect(() => {
   
-    const items = JSON.parse(localStorage.getItem('descriptionId'));
-    if (items) {
-      
-      localStorage.setItem('descriptionId', JSON.stringify(discriprionId));
-    }
+
+/*  useEffect(() => {
+   
+   
     
-  }, [discriprionId]);
+       
+    localStorage.setItem('descriptionId', JSON.stringify(discriprionId));
+    
+     
+  }, [discriprionId]);  */
 
 function cat (items){
 
