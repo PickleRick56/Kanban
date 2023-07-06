@@ -1,5 +1,5 @@
 import { useState, useEffect, Component } from 'react';
-
+let date = new Date().toLocaleDateString("ru-RU");
 
 export default function Footer ( {prop}){
   let taskscondition=()=>{
@@ -7,32 +7,16 @@ export default function Footer ( {prop}){
     if(Array.isArray(items)){
       return items.length
     }
-    return 's';
+    return 'no';
   }
 
-
-  let tasksReady=()=>{
-    const items = JSON.parse(localStorage.getItem('conditionReadyKey'));
-    if(Array.isArray(items)){
-      return items.length
-    }
-    return 's';
-  }
-
-  let tasksInProgress=()=>{
-    const items = JSON.parse(localStorage.getItem('conditionInProgressKey'));
-    if(Array.isArray(items)){
-      return items.length
-    }
-    return 's';
-  }
 
   let tasksFinished=()=>{
     const items = JSON.parse(localStorage.getItem('conditionFinishedKey'));
     if(Array.isArray(items)){
       return items.length
     }
-    return 's';
+    return 'no';
   }
 
     /* useEffect(() => {
@@ -51,7 +35,7 @@ export default function Footer ( {prop}){
 
     {/*  <div> {`Active tasks:<${taskscondition.length + tasksReady.length + tasksInProgress.length}> Finished tasks: <${tasksFinished.length}>   Kanban board by <NAME>, <YEAR>`}            </div> */}
 
-    <div> {`Active tasks:<${(prop[0]===undefined ? taskscondition(): Number.isNaN(prop[0].length)?  '0'  : prop[0].length)+(prop[1]===undefined ? tasksReady(): Number.isNaN(prop[1].length)?  '0' : prop[1].length)+(prop[2]===undefined ? tasksInProgress(): Number.isNaN(prop[2].length)?  '0' : prop[2].length) }> Finished tasks: <${(prop[3]===undefined ? tasksFinished(): Number.isNaN(prop[3].length)?  0 : prop[3].length )}>  Kanban board by <NAME>, <YEAR>`}         </div>
+    <div> {`Active tasks:<${(prop[0]===undefined ? taskscondition(): Number.isNaN(prop[0].length)?  '0'  : prop[0].length) }> Finished tasks: <${(prop[3]===undefined ? tasksFinished(): Number.isNaN(prop[3].length)?  0 : prop[3].length )}>  Kanban board by <NAME>, ${date}`}         </div>
                
     </>
     

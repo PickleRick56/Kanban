@@ -3,28 +3,25 @@ import { useState, useEffect } from 'react';
 
 
 
-export default function ContentPage ({prop, discriprionId,setDiscriprionId}){
-    const [topic, setTopic] = useState('');
-    const [display, setDisplay] = useState(false);
-    const [taskDescription, setTaskDescription] = useState(JSON.parse(localStorage.getItem('descriptionId')));
+export default function ContentPage ({prop, discriprionId,setDiscriprionId, discriprionForKey}){
+    const [topic, setTopic] = useState(discriprionForKey);
+    const [display, setDisplay] = useState('false');
+    
 
 
-    let z=[...discriprionId];
+ 
+
    let taskProp=[];
-  console.log(discriprionId)
+  console.log(discriprionId.length)
 
 
 function addDiscriprion(){
 
   const items = JSON.parse(localStorage.getItem('descriptionId'));
     
-
     if (items) {
          /* когда в items чтото есть */
        
-   
-           
-         
 
             for (let i=0; i<items.length; i++){
                 if(items[i].id===prop.id){
@@ -56,24 +53,20 @@ function addDiscriprion(){
     return(
         <>
         
-        <div>{prop.name}</div><br/><br/> <div><Link to={`/`}>X</Link></div>
+        <div   >{prop.name}</div><br/><br/> <div  onClick={() => {     addDiscriprion();        }}><Link  to={`/`}>X</Link></div>
+
+        <textarea  style={{border:'none'}}  value={topic} onChange={e => setTopic(e.target.value)}></textarea>
 
 
-
-
-        {display ?
-
-<><button onClick={() => {     addDiscriprion();        setDisplay(false); }} >Submit</button> 
-  <input value={topic} onChange={e => setTopic(e.target.value)}/>   </> 
-
-:  <button onClick={() => {setDisplay(true);  setTopic('');}} >Add card</button>}
+   
 
 
 
 
 
 
-<h1>значение из инпуа {topic}</h1>
+
+<h1>значение из textarea {topic}</h1>
 
         </>
     )

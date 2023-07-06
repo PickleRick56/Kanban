@@ -13,8 +13,8 @@ let counter=0;
 
 
 export default function ShowDesk ({prop,getAllProp}){
-  
 
+ 
   const [condition, setCondition]= useState([]);
   const [conditionReady, setConditionReady]=useState([]);
   const [conditionInProgress, setConditionInProgress]=useState([]);

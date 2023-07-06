@@ -72,6 +72,17 @@ function cat (items){
   setAllProp(items);
 }
 
+
+function findDescription(key){
+  for(let i=0; discriprionId.length>i;i++){
+    if(discriprionId[i].id===key.id){
+      return discriprionId[i].discriprion;
+      
+    }
+  }
+}
+
+
 return(
 <>
 <Header />
@@ -80,15 +91,17 @@ return(
 
 <Route   path={`/`} element={<ShowDesk prop={сomponents}  getAllProp={cat}/>}/>
 
-{/* {сomponents.map(key => (
-  <Route   path={`${key.id}`} element={<><div>{key.name}</div><br/><br/> <div><Link to={`/`}>X</Link></div></>}/>
-))} */}
+
 
 
 
 
 {сomponents.map(key => (
-  <Route   path={`${key.id}`} element={<ContentPage prop={key} discriprionId={discriprionId} setDiscriprionId={setDiscriprionId} />}/>
+
+
+
+
+  <Route   path={`${key.id}`} element={<ContentPage prop={key} discriprionId={discriprionId}  setDiscriprionId={setDiscriprionId} discriprionForKey={findDescription(key)}/>}/>
 ))}
 
 
