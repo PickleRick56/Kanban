@@ -35,8 +35,16 @@ export default function Footer ( {prop}){
 
     {/*  <div> {`Active tasks:<${taskscondition.length + tasksReady.length + tasksInProgress.length}> Finished tasks: <${tasksFinished.length}>   Kanban board by <NAME>, <YEAR>`}            </div> */}
 
-    <div> {`Active tasks:<${(prop[0]===undefined ? taskscondition(): Number.isNaN(prop[0].length)?  '0'  : prop[0].length) }> Finished tasks: <${(prop[3]===undefined ? tasksFinished(): Number.isNaN(prop[3].length)?  0 : prop[3].length )}>  Kanban board by <NAME>, ${date}`}         </div>
-               
+    <div className="footer">
+      <div className="footer_coverForTasks">
+        <div className="footer_activeTask">{`Active tasks:<${(prop[0]===undefined ? taskscondition(): Number.isNaN(prop[0].length)?  '0'  : prop[0].length) }>  `}</div>
+         <div>{`Finished tasks: <${(prop[3]===undefined ? tasksFinished(): Number.isNaN(prop[3].length)?  0 : prop[3].length )}>`}</div>
+       </div>
+       
+       <div>{`  Kanban board by <NAME>, ${date}`}</div>  
+       
+       </div>
+            
     </>
     
     )

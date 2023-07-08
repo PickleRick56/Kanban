@@ -1,38 +1,137 @@
+
+
+
+body{
+  background-color: var(--main-body-bg-color);
+}
+
+a {
+  color: #000 !important;
+  text-decoration: none
+  
+}
+
+
+:root {
+  --main-bg-color: #0067A3;
+  --main-body-bg-color: #0079BF;
+  --second-bg-color:#fff;
+  --main-text-color:#FFF;
+  --second-text-color: #000000;
+  --rotation-angle: 45deg;
+  --display-profile: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* header */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header{
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+height: 55px;
+vertical-align:middle;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding: 0 40px 0 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.user{
+  width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: var(--main-text-color);
+position:relative;
+
+
+color: #000;
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.user::after{
+  content: '';
+  display: block;
+  top: 31%;
+  left: 112%;
+  height: 7px;
+  width: 7px;
+  position: absolute;
+  z-index: 1;
+  border: 2px solid var(--main-text-color);
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  transform: rotate(var(--rotation-angle));
+}
+
+.user::before{
+  content: '';
+  display: var(--display-profile);
+  top: 118%;
+  right: 39%;
+  height: 7px;
+  width: 7px;
+  position: absolute;
+  z-index: 1;
+  border: 2px solid var(--main-text-color);
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  transform: rotate(224deg);
+  background-color: #fff;
+}
+
+.profile{
+  
+  display: var(--display-profile);
+  flex-direction: column;
+  justify-content: space-around;
+  top: 128%;
+  left: -211%;
+  width: 134px;
+  height: 60px;
+  position: absolute;
+  z-index: 1;
+  background-color: var( --second-bg-color);
+  border-radius: 5px;
+  padding: 8px;
+}
+
+
+
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  background-color: var(--main-bg-color);
+  padding: 0 20px;
+color: var(--main-text-color);
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.footer_coverForTasks{
+  display: flex;
+}
+
+.footer_activeTask{
+  margin-right: 36px;
 }
