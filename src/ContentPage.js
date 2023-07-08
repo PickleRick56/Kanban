@@ -53,20 +53,26 @@ function addDiscriprion(){
     return(
         <>
         
-        <div   >{prop.name}</div><br/><br/> <div  onClick={() => {     addDiscriprion();        }}><Link  to={`/`}>X</Link></div>
+        <div className='content_page'>
+            <div className="title_wrapper">
+               <div  className="fperformance_issues" >{prop.name}</div>
+               <div className="page_closer"  onClick={() => {     addDiscriprion();        }}><Link  to={`/`}>X</Link></div>
+            </div>
 
-        <textarea  style={{border:'none'}}  value={topic} onChange={e => setTopic(e.target.value)}></textarea>
+        <textarea  className="footer_textarea" style={{border:'none'}}  value={topic} onChange={e => setTopic(e.target.value)}></textarea>
+        
+        </div>
 
 
    
 
 
+        
 
 
 
 
 
-<h1>значение из textarea {topic}</h1>
 
         </>
     )
