@@ -164,3 +164,140 @@ line-height: normal;
   flex: 1;
 
 }
+
+/* desk */
+
+.desk_wrapper{
+  height: 850px;
+  display: flex;
+  flex-wrap: wrap;
+justify-content: space-around;
+padding-top: 25px;
+padding-bottom: 32px;
+}
+
+.tasks_bg{
+  width: 282px;
+  border-radius: 10px;
+  background: #EBECF0;
+  padding: 12px;
+  max-height: 538px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+.tasks_cover{
+width: 267px;
+border-radius: 5px;
+background: #FFF;
+padding: 7px;
+margin-bottom:15px;
+
+color: #000;
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+
+.task_title{
+margin-bottom: 15px;
+
+  color: #000;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.button_grey{
+  width: 102px;
+height: 29px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: #EBECF0;
+margin-bottom: 8px;
+
+  color: #5E6C84;
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.button_grey:hover{
+  cursor: pointer;
+  width: 102px;
+height: 29px;
+border: 1px solid transparent;
+border-radius: 5px;
+background: #FFF;
+}
+
+.button_submit{
+  display: block;
+  width: 102px;
+height: 29px;
+background-color: #0079BF;
+border: 1px solid transparent;
+border-radius: 5px;
+cursor: pointer;
+color: #FFF;
+text-align: center;
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.input_submit{
+  width: 282px;
+height: 35px;
+border-radius: 5px;
+background: #FFF;
+
+margin-bottom: 12px;
+border:none;
+}
+
+input:focus, input[type]:focus, .uneditable-input:focus{
+  outline: none !important;
+  
+
+}
+
+
+
+select option:checked,
+select option:hover {
+    box-shadow: 0 0 10px 100px red inset;
+}
+select:focus > option:checked { 
+  background: red !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+ 
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  width: 4px;
+  background: #FFFFFF;
+  
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #CBCBCB;
+  border-radius: 5px;
+  
+}

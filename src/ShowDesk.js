@@ -149,17 +149,23 @@ export default function ShowDesk ({prop,getAllProp}){
  
   return(
 <>
+<div className="desk_wrapper">     
+     <div >  <Backlog prop={condition}  onClick={addElement} /></div>     
+     <div> <Ready conditionReady={conditionReady} prop={condition} onClick={addToDraw}/></div>     
+     <div> <InProgress conditionInProgress={conditionInProgress} prop={conditionReady} onClick={addToDrawR}/></div>
+     <div> <Finished conditionInProgress={conditionFinished} prop={conditionInProgress} onClick={addToDrawF}/></div>
+</div>
+
+   
+
+    
+    
+   
 
 
-     <Backlog prop={condition}  onClick={addElement} />
-     <Ready conditionReady={conditionReady} prop={condition} onClick={addToDraw}/>
-     <InProgress conditionInProgress={conditionInProgress} prop={conditionReady} onClick={addToDrawR}/>
-    <Finished conditionInProgress={conditionFinished} prop={conditionInProgress} onClick={addToDrawF}/>
 
 
 
-
-<h1>Компонент App </h1>
 
 </>
 

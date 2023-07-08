@@ -22,23 +22,26 @@ function hendler(){
     return (
       <>
     
- <div>
+ <div className="tasks_bg">
 
- <h1>Ready</h1>
-           <select  onClick={changeStatus} id="tasks">
+ <div className="task_title"> Ready</div>
+           
+
+            
+
+ 
+  {conditionReady.map(artist => (<div className="tasks_cover" id={artist.id} ><Link to={`/${artist.id}`}>{artist.name}</Link></div>))}
+  
+
+  <select  className="input_submit"  onClick={changeStatus} id="tasks">
                {prop.map(key => (<option value={key.name}  >{key.name}</option>))}
             </select>
 
 
-            
-
-  <ul>
-  {conditionReady.map(artist => (<li id={artist.id} ><Link to={`/${artist.id}`}>{artist.name}</Link></li>))}
-  </ul>
 
 
-<p>выбранный элемент {status}</p>
-<button onClick={hendler}>добавить</button>
+
+<button className="button_grey" onClick={hendler}>+Add card</button>
  </div>
 
  
