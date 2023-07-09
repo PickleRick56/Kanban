@@ -29,6 +29,16 @@ a {
   text-align: center;
 }
 
+.max-width{
+  max-width: 1235px;
+  
+}
+
+.align_center{
+  margin: 0 auto;
+}
+
+
 /* header */
 
 .header{
@@ -138,6 +148,10 @@ position: fixed;
 
 .footer_activeTask{
   margin-right: 36px;
+}
+
+.footer_finishedTask{
+  margin-right: 20px;
 }
 
 /* content page */
@@ -260,6 +274,8 @@ font-weight: 400;
 line-height: normal;
 }
 
+
+
 .input_submit{
   width: 282px;
 height: 35px;
@@ -270,10 +286,31 @@ margin-bottom: 12px;
 border:none;
 }
 
+input {
+  color: #000;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
 input:focus, input[type]:focus, .uneditable-input:focus{
   outline: none !important;
   
 
+}
+
+select{
+ padding-left: 4px;
+
+  color: #000;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 
@@ -281,9 +318,17 @@ input:focus, input[type]:focus, .uneditable-input:focus{
 select option:checked,
 select option:hover {
     box-shadow: 0 0 10px 100px red inset;
+
+    
 }
 select:focus > option:checked { 
-  background: red !important;
+  color: #000;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  
 }
 
 /* width */
@@ -305,3 +350,6 @@ select:focus > option:checked {
   border-radius: 5px;
   
 }
+
+
+

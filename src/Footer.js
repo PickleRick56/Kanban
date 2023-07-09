@@ -31,9 +31,7 @@ export default function Footer ( {prop}){
     return(
     <>
     
-  {/*<div> {`Active tasks:<${(prop[0]===undefined ? 'no': Number.isNaN(prop[0].length)?  0 : prop[0].length)+(prop[1]===undefined ? 'no': Number.isNaN(prop[1].length)?  0 : prop[1].length)+(prop[2]===undefined ? 'no': Number.isNaN(prop[2].length)?  0 : prop[2].length) }> Finished tasks: <${(prop[3]===undefined ? 'no': Number.isNaN(prop[3].length)?  0 : prop[3].length )}>  Kanban board by <NAME>, <YEAR>`}         </div> */}
-
-    {/*  <div> {`Active tasks:<${taskscondition.length + tasksReady.length + tasksInProgress.length}> Finished tasks: <${tasksFinished.length}>   Kanban board by <NAME>, <YEAR>`}            </div> */}
+  
 
     <div className="footer">
       <div className="footer_coverForTasks">
@@ -41,7 +39,7 @@ export default function Footer ( {prop}){
          <div>{`Finished tasks: <${(prop[3]===undefined ? tasksFinished(): Number.isNaN(prop[3].length)?  0 : prop[3].length )}>`}</div>
        </div>
        
-       <div>{`  Kanban board by <NAME>, ${date}`}</div>  
+       <div  className="footer_finishedTask">{`  Kanban board by <NAME>, ${date}`}</div>  
        
        </div>
             

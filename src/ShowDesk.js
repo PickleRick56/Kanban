@@ -149,7 +149,7 @@ export default function ShowDesk ({prop,getAllProp}){
  
   return(
 <>
-<div className="desk_wrapper">     
+<div className="desk_wrapper max-width align_center">     
      <div >  <Backlog prop={condition}  onClick={addElement} /></div>     
      <div> <Ready conditionReady={conditionReady} prop={condition} onClick={addToDraw}/></div>     
      <div> <InProgress conditionInProgress={conditionInProgress} prop={conditionReady} onClick={addToDrawR}/></div>
