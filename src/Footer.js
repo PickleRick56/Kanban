@@ -18,16 +18,6 @@ export default function Footer ( {prop}){
     }
     return 'no';
   }
-
-    /* useEffect(() => {
-  
-    const items = JSON.parse(localStorage.getItem('сomponents'));
-    if (items) {
-      
-      setTasksForFooter(items);
-    }
-    
-  }, []);  */
     return(
     <>
     
