@@ -63,7 +63,7 @@ height: 40px;
 border-radius: 50%;
 background-color: var(--main-text-color);
 position:relative;
-
+cursor: pointer;
 
 color: #000;
 font-family: Roboto;
