@@ -1,0 +1,355 @@
+
+
+
+body{
+  background-color: var(--main-body-bg-color);
+}
+
+a {
+  color: #000 !important;
+  text-decoration: none
+  
+}
+
+
+:root {
+  --main-bg-color: #0067A3;
+  --main-body-bg-color: #0079BF;
+  --second-bg-color:#fff;
+  --main-text-color:#FFF;
+  --second-text-color: #000000;
+  --rotation-angle: 45deg;
+  --display-profile: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+.App {
+  text-align: center;
+}
+
+.max-width{
+  max-width: 1235px;
+  
+}
+
+.align_center{
+  margin: 0 auto;
+}
+
+
+/* header */
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+height: 55px;
+vertical-align:middle;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding: 0 40px 0 20px;
+}
+
+.user{
+  width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: var(--main-text-color);
+position:relative;
+
+
+color: #000;
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.user::after{
+  content: '';
+  display: block;
+  top: 31%;
+  left: 112%;
+  height: 7px;
+  width: 7px;
+  position: absolute;
+  z-index: 1;
+  border: 2px solid var(--main-text-color);
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  transform: rotate(var(--rotation-angle));
+}
+
+.user::before{
+  content: '';
+  display: var(--display-profile);
+  top: 118%;
+  right: 39%;
+  height: 7px;
+  width: 7px;
+  position: absolute;
+  z-index: 1;
+  border: 2px solid var(--main-text-color);
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  transform: rotate(224deg);
+  background-color: #fff;
+}
+
+.profile{
+  
+  display: var(--display-profile);
+  flex-direction: column;
+  justify-content: space-around;
+  top: 128%;
+  left: -211%;
+  width: 134px;
+  height: 60px;
+  position: absolute;
+  z-index: 1;
+  background-color: var( --second-bg-color);
+  border-radius: 5px;
+  padding: 8px;
+}
+
+
+/* footer */
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  background-color: var(--main-bg-color);
+  padding: 0 20px;
+color: var(--main-text-color);
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+position: fixed;
+  left: 0;
+  bottom: 0;
+  width:100%;
+}
+
+.footer_coverForTasks{
+  display: flex;
+}
+
+.footer_activeTask{
+  margin-right: 36px;
+}
+
+.footer_finishedTask{
+  margin-right: 20px;
+}
+
+/* content page */
+.content_page{
+  display: flex;
+  
+  flex-direction: column;
+  height: 700px;
+  padding: 22px;
+  background-color:var( --second-bg-color) ;
+}
+.title_wrapper{
+  display: flex;
+  justify-content: space-between;
+  
+  
+  height: 33px;
+
+  color: var( --second-text-color);
+font-family: Roboto;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.footer_textarea{
+  flex: 1;
+
+}
+
+/* desk */
+
+.desk_wrapper{
+  
+  display: flex;
+  flex-wrap: wrap;
+justify-content: space-around;
+padding-top: 25px;
+padding-bottom: 32px;
+}
+
+.tasks_bg{
+  width: 282px;
+  border-radius: 10px;
+  background: #EBECF0;
+  padding: 12px;
+  max-height: 538px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+.tasks_cover{
+width: 267px;
+border-radius: 5px;
+background: #FFF;
+padding: 7px;
+margin-bottom:15px;
+
+color: #000;
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+
+.task_title{
+margin-bottom: 15px;
+
+  color: #000;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.button_grey{
+  width: 102px;
+height: 29px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: #EBECF0;
+margin-bottom: 8px;
+
+  color: #5E6C84;
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.button_grey:hover{
+  cursor: pointer;
+  width: 102px;
+height: 29px;
+border: 1px solid transparent;
+border-radius: 5px;
+background: #FFF;
+}
+
+.button_submit{
+  display: block;
+  width: 102px;
+height: 29px;
+background-color: #0079BF;
+border: 1px solid transparent;
+border-radius: 5px;
+cursor: pointer;
+color: #FFF;
+text-align: center;
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+
+
+.input_submit{
+  width: 282px;
+height: 35px;
+border-radius: 5px;
+background: #FFF;
+
+margin-bottom: 12px;
+border:none;
+}
+
+input {
+  color: #000;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
+input:focus, input[type]:focus, .uneditable-input:focus{
+  outline: none !important;
+  
+
+}
+
+select{
+ padding-left: 4px;
+
+  color: #000;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
+
+select option:checked,
+select option:hover {
+    box-shadow: 0 0 10px 100px red inset;
+
+    
+}
+select:focus > option:checked { 
+  color: #000;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+ 
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  width: 4px;
+  background: #FFFFFF;
+  
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #CBCBCB;
+  border-radius: 5px;
+  
+}
+
+
+
