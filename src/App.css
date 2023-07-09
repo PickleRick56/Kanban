@@ -151,7 +151,7 @@ position: fixed;
 }
 
 .footer_finishedTask{
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 /* content page */
@@ -315,12 +315,7 @@ select{
 
 
 
-select option:checked,
-select option:hover {
-    box-shadow: 0 0 10px 100px red inset;
 
-    
-}
 select:focus > option:checked { 
   color: #000;
   font-family: Roboto;
